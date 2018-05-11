@@ -1,0 +1,122 @@
+* {margin:0;padding:0;}
+
+body {
+    font-family: Tahoma, sans-serif;
+    padding:1em;
+}
+
+h1 {
+    margin-bottom: .2em;
+}
+
+h2 {
+    border-bottom: 1px solid #000;
+    margin-bottom: 1em;
+}
+
+h1 > a, h2 > a {
+    font-size: mecium;
+}
+
+.environment {
+    border: 1px solid #000;
+    box-shadow: 2px 2px #000;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.section {
+    border: 1px solid #000;
+    box-shadow: 2px 2px #000;
+}
+
+.section h3 {
+    display: block;
+    background: #000;
+    color: #fff;
+    padding: .5em .8em;
+    font-size: small;
+}
+
+.host h3 {
+    display: block;
+    background: #2467bb;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #fff;
+    padding: .5em .8em;
+    font-size: small;
+}
+
+.host > h3 > span {
+    font-size: x-small;
+}
+
+.host-information {
+    margin: .5em;
+    font-size: x-small;
+}
+
+.host {
+    border: 1px solid #000;
+    border-radius: 4px;
+    background: #ccc;
+    box-shadow: 2px 2px #000;
+    display: inline-block;
+    vertical-align:top;
+    margin: .5em;
+    width: 18%;
+}
+
+.list {
+    margin-top: .5em;
+}
+
+.list > ul {
+    list-style-position: inside;
+}
+
+.list > ul > li {
+    padding-left: .3em;
+    font-size: x-small;
+}
+
+.description {
+    margin-top: .5em;
+}
+
+.host-information-section {
+    border-radius: 4px;
+    margin-top: 1em;
+    background: #86bc03;
+}
+
+.host-information-section h4 {
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: .5em 1em;
+    background: #e95115;
+    color: #fff;
+}
+
+.host-information-section table {
+    margin: .5em;
+    padding-bottom: .7em;
+}
+
+.host-information-section th {
+    vertical-align: top;
+    text-align: right;
+    padding-right: 1em;
+}
+
+.host-information-section p {
+    margin: 1em;
+    padding-bottom: 1em;
+}
+
+ul {
+    list-style-type: none;
+}

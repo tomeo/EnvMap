@@ -1,0 +1,66 @@
+{
+  "project": "My project",
+  "url": "",
+  "environments": [
+    {
+      "name": "Production",
+      "url": "https://production.com",
+      "sections": [
+        {
+          "name": "DMZ",
+          "hosts": [
+            {
+              "title": "MACHINE01",
+              "network": {
+                "hostname": "MACHINE01",
+                "ip": "1.2.3.4",
+                "section": "DMZ",
+                "ports": [
+                  "Internet TCP port 80",
+                  "Internet TCP port 443"
+                ]
+              },
+              "hardware": {
+                "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
+                "memory": "16 GB",
+                "disk": "250 GB"
+              },
+              "software": {
+                "os": "Debian 9 \"Stretch\"",
+                "backup": "yes",
+                "services": [
+                  "NGINX"
+                ]
+              },
+              "description": "Runs NGINX."
+            },
+            {
+              "title": "MACHINE02",
+              "network": {
+                "hostname": "MACHINE02",
+                "ip": "1.2.3.5",
+                "section": "DMZ",
+                "ports": [
+                  "MACHINE01 TCP port 9200"
+                ]
+              },
+              "hardware": {
+                "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
+                "memory": "16 GB",
+                "disk": "250 GB"
+              },
+              "software": {
+                "os": "Debian 9 \"Stretch\"",
+                "backup": "yes",
+                "services": [
+                  "Elastic Search 6"
+                ]
+              },
+              "description": "Runs Elastic Search"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
