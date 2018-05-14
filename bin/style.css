@@ -25,12 +25,12 @@ h1 > a, h2 > a {
     margin-bottom: 1em;
 }
 
-.section {
+.section, .services {
     border: 1px solid #000;
     box-shadow: 2px 2px #000;
 }
 
-.section h3 {
+.section h3, .services h3 {
     display: block;
     background: #000;
     color: #fff;
@@ -38,7 +38,7 @@ h1 > a, h2 > a {
     font-size: small;
 }
 
-.host h3 {
+.entity h3, .service h3 {
     display: block;
     background: #2467bb;
     border-radius: 4px;
@@ -49,16 +49,16 @@ h1 > a, h2 > a {
     font-size: small;
 }
 
-.host > h3 > span {
+.entity > h3 > span {
     font-size: x-small;
 }
 
-.host-information {
+.entity-information {
     margin: .5em;
     font-size: x-small;
 }
 
-.host {
+.entity, .service {
     border: 1px solid #000;
     border-radius: 4px;
     background: #ccc;
@@ -86,37 +86,60 @@ h1 > a, h2 > a {
     margin-top: .5em;
 }
 
-.host-information-section {
+.entity-information-section {
     border-radius: 4px;
     margin-top: 1em;
     background: #86bc03;
+    padding-bottom:1em;
 }
 
-.host-information-section h4 {
+.entity-information-section h4 {
     border-radius: 4px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding: .5em 1em;
     background: #e95115;
     color: #fff;
+    margin-bottom:1em;
 }
 
-.host-information-section table {
+/* .entity-information-section table {
     margin: .5em;
     padding-bottom: .7em;
-}
+} */
 
-.host-information-section th {
+.entity-information-section th {
     vertical-align: top;
     text-align: right;
     padding-right: 1em;
 }
 
-.host-information-section p {
-    margin: 1em;
-    padding-bottom: 1em;
+.entity-information-section p {
+    margin: 0 1em;
 }
 
-ul {
+table ul {
     list-style-type: none;
+}
+
+.external {
+    background: #000;
+    color: #fff;
+}
+
+.external h3 {
+    background: #999;
+}
+
+.external .entity-information-section {
+    background: #ccc;
+    color: #000;
+}
+
+.external .entity-information-section h4 {
+    background: #999;
+}
+
+.service ul li {
+    margin-left: 2em;
 }

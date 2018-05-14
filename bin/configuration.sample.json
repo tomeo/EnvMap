@@ -4,7 +4,6 @@
   "environments": [
     {
       "name": "Production",
-      "url": "https://production.com",
       "sections": [
         {
           "name": "DMZ",
@@ -57,8 +56,70 @@
                 ]
               },
               "description": "Runs Elastic Search"
+            },
+            {
+              "title": "SQL01",
+              "network": {
+                "hostname": "SQL01",
+                "ip": "1.2.3.6",
+                "section": "DMZ"
+              },
+              "hardware": {
+                "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
+                "memory": "16 GB",
+                "disk": "250 GB"
+              },
+              "software": {
+                "os": "Debian 9 \"Stretch\"",
+                "backup": "yes",
+                "services": [
+                  "SQL"
+                ]
+              },
+              "description": "SQL-machine"
             }
           ]
+        }
+      ],
+      "services": [
+        {
+          "title": "service1",
+          "internal": true,
+          "hosts": [
+            "MACHINE01",
+            "MACHINE02"
+          ],
+          "dependencies": [
+            "sql",
+            "external-service1"
+          ],
+          "description": "Delivers data x to system y."
+        },
+        {
+          "title": "sql",
+          "internal": true,
+          "hosts": [
+            "SQL01"
+          ],
+          "description": "Persistance of data for services."
+        },
+        {
+          "title": "external-service1",
+          "internal": false,
+          "description": "An external service we don't control but collect data from."
+        },
+        {
+          "title": "service2",
+          "internal": true,
+          "hosts": [
+            "MACHINE01",
+            "MACHINE02"
+          ],
+          "dependencies": [
+            "service1",
+            "external-service1"
+          ],
+          "description": "Other internal service"
         }
       ]
     }
