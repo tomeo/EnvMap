@@ -39,7 +39,16 @@ const service = (service) => `
 module.exports = (services) => `
   <h3>Services</h3>
   <div class="internal-services">
-    ${services.filter(s => s.internal).map(s => service(s)).join('')}
+    ${services
+      .filter(s => s.internal)
+      .filter(s => s.dependencies)
+      .map(s => service(s)).join('')}
+  </div>
+  <div class="internal-services-no-depedencies">
+    ${services
+      .filter(s => s.internal)
+      .filter(s => !s.dependencies)
+      .map(s => service(s)).join('')}
   </div>
   <div class="external-services">
     ${services.filter(s => !s.internal).map(s => service(s)).join('')}
