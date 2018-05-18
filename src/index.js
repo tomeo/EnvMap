@@ -10,16 +10,16 @@ const parseFile = (confPath) => readFileAsync(confPath, 'utf8')
 module.exports = (confPath, outPath) => {
   return Promise.all([
       readFileAsync('./style.css', 'utf8'),
-      readFileAsync('jquery.js', 'utf8'),
-      readFileAsync('jquery.connections.js', 'utf8'),
+      readFileAsync('../node_modules/vis/dist/vis.js', 'utf8'),
+      readFileAsync('../node_modules/vis/dist/vis-network.min.css', 'utf8'),
       parseFile(confPath)])
     .then(([
-      css,
-      jQuery,
-      jQueryConnections,
+      styleCss,
+      visJs,
+      visCss,
       json]) => writeFileAsync(outPath, htmlGenerator(
         json,
-        jQuery,
-        jQueryConnections,
-        css)));
+        visJs,
+        visCss,
+        styleCss)));
 };

@@ -143,3 +143,9 @@ table ul {
 .service ul li {
     margin-left: 2em;
 }
+
+.graph-container {
+    width: 1600px;
+    height: 1600px;
+    margin: 0 auto;
+}

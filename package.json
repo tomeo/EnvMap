@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "meow": "^5.0.0"
+    "meow": "^5.0.0",
+    "vis": "^4.21.0"
   }
 }
