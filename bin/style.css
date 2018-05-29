@@ -25,12 +25,12 @@ h1 > a, h2 > a {
     margin-bottom: 1em;
 }
 
-.section, .services {
+.services {
     border: 1px solid #000;
     box-shadow: 2px 2px #000;
 }
 
-.section h3, .services h3 {
+.hosts h3, .services h3 {
     display: block;
     background: #000;
     color: #fff;
@@ -103,11 +103,6 @@ h1 > a, h2 > a {
     margin-bottom:1em;
 }
 
-/* .entity-information-section table {
-    margin: .5em;
-    padding-bottom: .7em;
-} */
-
 .entity-information-section th {
     vertical-align: top;
     text-align: right;
@@ -145,7 +140,7 @@ table ul {
 }
 
 .graph-container {
-    width: 1600px;
-    height: 1600px;
+    width: 1000px;
+    height: 800px;
     margin: 0 auto;
 }

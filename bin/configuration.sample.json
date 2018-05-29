@@ -1,127 +1,120 @@
 {
-  "project": "My project",
-  "url": "",
-  "environments": [
-    {
-      "name": "Production",
-      "sections": [
+    "name": "Example",
+    "hosts": [
         {
-          "name": "DMZ",
-          "hosts": [
-            {
-              "title": "MACHINE01",
-              "network": {
+            "title": "MACHINE01",
+            "network": {
                 "hostname": "MACHINE01",
                 "ip": "1.2.3.4",
                 "section": "DMZ",
                 "ports": [
-                  "Internet TCP port 80",
-                  "Internet TCP port 443"
+                    "Internet TCP port 80",
+                    "Internet TCP port 443"
                 ]
-              },
-              "hardware": {
+            },
+            "hardware": {
                 "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
                 "memory": "16 GB",
                 "disk": "250 GB"
-              },
-              "software": {
+            },
+            "software": {
                 "os": "Debian 9 \"Stretch\"",
                 "backup": "yes",
                 "services": [
-                  "NGINX"
+                    "NGINX"
                 ]
-              },
-              "description": "Runs NGINX."
             },
-            {
-              "title": "MACHINE02",
-              "network": {
+            "description": "Runs NGINX."
+        },
+        {
+            "title": "MACHINE02",
+            "network": {
                 "hostname": "MACHINE02",
                 "ip": "1.2.3.5",
                 "section": "DMZ",
                 "ports": [
-                  "MACHINE01 TCP port 9200"
+                    "MACHINE01 TCP port 9200"
                 ]
-              },
-              "hardware": {
+            },
+            "hardware": {
                 "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
                 "memory": "16 GB",
                 "disk": "250 GB"
-              },
-              "software": {
+            },
+            "software": {
                 "os": "Debian 9 \"Stretch\"",
                 "backup": "yes",
                 "services": [
-                  "Elastic Search 6"
+                    "Elastic Search 6"
                 ]
-              },
-              "description": "Runs Elastic Search"
             },
-            {
-              "title": "SQL01",
-              "network": {
+            "description": "Runs Elastic Search"
+        },
+        {
+            "title": "SQL01",
+            "network": {
                 "hostname": "SQL01",
                 "ip": "1.2.3.6",
                 "section": "DMZ"
-              },
-              "hardware": {
+            },
+            "hardware": {
                 "cpu": "Intel Xeon CPU E5-2680 v4 @ 2.40 Ghz (4 processors)",
                 "memory": "16 GB",
                 "disk": "250 GB"
-              },
-              "software": {
+            },
+            "software": {
                 "os": "Debian 9 \"Stretch\"",
                 "backup": "yes",
                 "services": [
-                  "SQL"
+                    "SQL"
                 ]
-              },
-              "description": "SQL-machine"
-            }
-          ]
+            },
+            "description": "SQL-machine"
         }
-      ],
-      "services": [
+    ],
+    "services": [
         {
-          "title": "service1",
-          "internal": true,
-          "hosts": [
-            "MACHINE01",
-            "MACHINE02"
-          ],
-          "dependencies": [
-            "sql",
-            "external-service1"
-          ],
-          "description": "Delivers data x to system y."
+            "title": "service1",
+            "internal": true,
+            "hosts": [
+                "MACHINE01",
+                "MACHINE02"
+            ],
+            "cluster": "cluster1",
+            "dependencies": [
+                "sql",
+                "external-service1"
+            ],
+            "description": "Delivers data x to system y."
         },
         {
-          "title": "sql",
-          "internal": true,
-          "hosts": [
-            "SQL01"
-          ],
-          "description": "Persistance of data for services."
+            "title": "sql",
+            "internal": true,
+            "hosts": [
+                "SQL01"
+            ],
+            "cluster": "cluster2",
+            "description": "Persistance of data for services."
         },
         {
-          "title": "external-service1",
-          "internal": false,
-          "description": "An external service we don't control but collect data from."
+            "title": "external-service1",
+            "internal": false,
+            "description": "An external service we don't control but collect data from."
         },
         {
-          "title": "service2",
-          "internal": true,
-          "hosts": [
-            "MACHINE01",
-            "MACHINE02"
-          ],
-          "dependencies": [
-            "service1",
-            "external-service1"
-          ],
-          "description": "Other internal service"
+            "title": "service2",
+            "internal": true,
+            "hosts": [
+                "MACHINE01",
+                "MACHINE02"
+            ],
+            "dependencies": [
+                "service1",
+                "external-service1",
+                "sql"
+            ],
+            "cluster": "cluster2",
+            "description": "Other internal service"
         }
-      ]
-    }
-  ]
+    ]
 }

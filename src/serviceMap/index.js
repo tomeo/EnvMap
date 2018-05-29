@@ -1,3 +1,6 @@
+var drawGraph = require('../drawGraph');
+var serviceGraph = require('../serviceGraph');
+
 const list = (items) => `
 <ul>
   ${items.map(i => `<li>${i}</li>`).join('')}
@@ -36,40 +39,7 @@ const service = (service) => `
 </div>
 `;
 
-const serviceGraph = (services) => {
-  var i = 1;
-  var nodes = new Map(services.map(s => ({
-    id: i++,
-    label: s.title,
-    color: s.internal ? 'skyblue' : 'black',
-    font: {
-      color: s.internal ? 'black' : 'white'
-    },
-    shape: 'box'
-  })).map((i) => [i.label, i]));
-
-  var edges = [];
-  for(var i = 0; i < services.length; i++) {
-    if (services[i].dependencies) {
-      for(var j = 0; j < services[i].dependencies.length; j++) {
-        var serviceName = services[i].title;
-        var service = nodes.get(serviceName);
-        var depedencyName = services[i].dependencies[j];
-        var depedency = nodes.get(depedencyName);
-        edges.push({
-          from: service.id,
-          to: depedency.id,
-          arrows: 'to'
-        });
-      }
-    }
-  }
-
-  return [Array.from(nodes.values()), edges];
-};
-
 module.exports = (environment) => {
-  [nodes, edges] = serviceGraph(environment.services);
   return `
   <h3>Services</h3>
   <div class="internal-services">
@@ -86,20 +56,5 @@ module.exports = (environment) => {
   </div>
   <div class="external-services">
     ${environment.services.filter(s => !s.internal).map(s => service(s)).join('')}
-  </div>
-  <div class="graph-container" id="${environment.name}-service-map">
-  <script type="text/javascript">
-    new vis.Network(
-      document.getElementById('${environment.name}-service-map'),
-      {
-        nodes: new vis.DataSet(${JSON.stringify(nodes)}),
-        edges: new vis.DataSet(${JSON.stringify(edges)})
-      },
-      {
-        interaction: {
-          zoomView: false
-        }
-      });
-  </script>
   </div>
 `};

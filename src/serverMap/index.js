@@ -47,7 +47,7 @@ const description = (description) => `
 </div>
 `;
 
-const host = (host) => `
+module.exports = (host) => `
 <div class="entity">
   <h3>${host.title}</h3>
   <div class="entity-information">
@@ -61,15 +61,6 @@ const host = (host) => `
     ${host.services && host.services.length ? list('Services', host.services) : ''}
 
     ${host.description ? description(host.description) : ''}
-  </div>
-</div>
-`;
-
-module.exports = (section) => `
-<div class="section">
-  <h3>${section.name}</h3>
-  <div class="hosts">
-    ${section.hosts ? section.hosts.map(h => host(h)).join('') : ''}
   </div>
 </div>
 `;

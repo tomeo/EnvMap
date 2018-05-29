@@ -17,9 +17,12 @@ module.exports = (confPath, outPath) => {
       styleCss,
       visJs,
       visCss,
-      json]) => writeFileAsync(outPath, htmlGenerator(
-        json,
-        visJs,
-        visCss,
-        styleCss)));
+      json]) => writeFileAsync(
+        outPath,
+        htmlGenerator(
+          json,
+          visJs,
+          visCss,
+          styleCss)
+        ));
 };
